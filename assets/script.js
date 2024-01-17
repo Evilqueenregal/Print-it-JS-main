@@ -17,25 +17,39 @@ const slides = [
 	}
 ]
 
+
 const arrowLeft = document.querySelector ('.arrow_left');
 const arrowRight = document.querySelector ('.arrow_right');
-const bannerImg = document.querySelector ('.banner_img');
+const bannerImg = document.querySelector ('.banner-img');
 const tagLine = document.querySelector ('#banner p');
-const dots = document.querySelector(`.dot`);
+const dots = document.querySelector(`.dots`);
 
-arrowLeft.addEventListener("click", move)
-arrowRight.addEventListener("click", move)
-dots.addEventListener(`click`, dot);
+
+slides.forEach(slide => {
+	const dot = document.createElement("div")
+	dot.classList.add("dot")
+	dots.appendChild(dot)
+});
+
 let compteur = 0;
+
+arrowRight.addEventListener("click", ()=> {
+	console.log("je suis dans la flèche droite")
+	changeImg()
+})
+
+console.log (arrowRight)
 
 
 function changeImg () {
-	for (let i = 0; i < slides.length; i++) {
-		compteur = 0;
+	compteur++
+	if (compteur == slides.length) {
+		compteur = 0
 	}
-	bannerImg.src = `assets/images/slideshow/${slides[compteur] .image}`;
-	tagLine.innerHTML = slides [compteur] .tagLine;
+	bannerImg.src = `./assets/images/slideshow/${slides[compteur].image}`;
+	tagLine.innerHTML = slides[compteur].tagLine;
 }
+
 
 function dot() {
 	for (let i = 0; i < dots.length; i++) {
@@ -45,4 +59,4 @@ function dot() {
 
 // Créer un évenement au click sur la flèche de gauche, puis le compteur passe à -1.
 // pareil pour la flèche de droite sauf compteur passe à +1.
-// appeler la fonction changeimg pour le changement img et tagline
+// appeler la fonction changeimg pour le changement img et tagline 
