@@ -38,7 +38,8 @@ arrowRight.addEventListener("click", ()=> {
 	changeImg()
 })
 
-console.log (arrowRight)
+console.log(arrowRight)
+
 
 
 function changeImg () {
@@ -51,12 +52,18 @@ function changeImg () {
 }
 
 
-function dot() {
-	for (let i = 0; i < dots.length; i++) {
-		
-	}
+function clickRight() {
+	arrowRight.addEventListener("click",()=>{
+	});
 }
+clickRight();
 
+arrowLeft.addEventListener("click", ()=> {
+	console.log("je suis dans la flèche gauche")
+	changeImg()
+})
+
+console.log(arrowLeft)
 // Créer un évenement au click sur la flèche de gauche, puis le compteur passe à -1.
 // pareil pour la flèche de droite sauf compteur passe à +1.
 // appeler la fonction changeimg pour le changement img et tagline 
